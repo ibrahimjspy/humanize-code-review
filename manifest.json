@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub PR Review Helper",
+  "version": "0.1.0",
+  "description": "Hide noisy GitHub PR files, summarize business logic changes, and flag review risks.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://github.com/*/*/pull/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*/*/pull/*"],
+      "js": ["content/github-pr.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "PR Review Helper",
+    "default_popup": "popup/popup.html"
+  },
+  "options_page": "options/options.html"
+}

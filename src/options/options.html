@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PR Review Helper Options</title>
+    <style>
+      body {
+        color: #24292f;
+        font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        background: #f6f8fa;
+      }
+
+      main {
+        background: #ffffff;
+        border: 1px solid #d0d7de;
+        border-radius: 12px;
+        margin: 32px auto;
+        max-width: 760px;
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 0 0 8px;
+      }
+
+      p {
+        color: #57606a;
+        margin-top: 0;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin: 20px 0 8px;
+      }
+
+      textarea {
+        border: 1px solid #d0d7de;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        min-height: 110px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      button {
+        border: 1px solid #d0d7de;
+        border-radius: 8px;
+        cursor: pointer;
+        font: inherit;
+        padding: 8px 12px;
+      }
+
+      button.primary {
+        background: #1f883d;
+        border-color: #1f883d;
+        color: #ffffff;
+      }
+
+      #status {
+        min-height: 20px;
+        margin-top: 14px;
+      }
+
+      .error {
+        color: #cf222e;
+      }
+
+      .success {
+        color: #1a7f37;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>GitHub PR Review Helper</h1>
+      <p>Customize which files are hidden, which paths count as business logic, and which keywords flag risk.</p>
+
+      <label for="hiddenPatterns">Hidden Patterns</label>
+      <textarea id="hiddenPatterns" spellcheck="false"></textarea>
+
+      <label for="businessPaths">Business Paths</label>
+      <textarea id="businessPaths" spellcheck="false"></textarea>
+
+      <label for="ignoredPaths">Ignored Paths</label>
+      <textarea id="ignoredPaths" spellcheck="false"></textarea>
+
+      <label for="riskKeywords">Risk Keywords JSON</label>
+      <textarea id="riskKeywords" spellcheck="false"></textarea>
+
+      <div class="actions">
+        <button class="primary" id="save" type="button">Save Settings</button>
+        <button id="reset" type="button">Reset Defaults</button>
+      </div>
+
+      <div id="status" role="status"></div>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
